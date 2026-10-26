@@ -16,8 +16,12 @@ classifiers = [
     
 ]
 dependencies = [
+    "ipykernel>=7.4.0",
     "loguru",
+    "matplotlib>=3.11.2",
+    "numpy>=2.5.4",
     "pip",
+    "pyarrow>=26.0.0",
     "python-dotenv",
     "ruff",
     "tqdm",

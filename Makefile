@@ -4,7 +4,7 @@
 
 PROJECT_NAME = epfl_ml_p1
 PYTHON_VERSION = 3.12
-PYTHON_INTERPRETER = python
+PYTHON_INTERPRETER = .venv/bin/python
 
 #################################################################################
 # COMMANDS                                                                      #
