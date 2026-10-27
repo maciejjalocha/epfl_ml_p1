@@ -1,35 +1,6 @@
-from pathlib import Path
 import random
 
-from loguru import logger
 import numpy as np
-from tqdm import tqdm
-import typer
-
-from p1.config import MODELS_DIR, PROCESSED_DATA_DIR
-
-app = typer.Typer()
-
-
-@app.command()
-def main(
-    # ---- REPLACE DEFAULT PATHS AS APPROPRIATE ----
-    features_path: Path = PROCESSED_DATA_DIR / "features.csv",
-    labels_path: Path = PROCESSED_DATA_DIR / "labels.csv",
-    model_path: Path = MODELS_DIR / "model.pkl",
-    # -----------------------------------------
-) -> None:
-    # ---- REPLACE THIS WITH YOUR OWN CODE ----
-    logger.info("Training some model...")
-    for i in tqdm(range(10), total=10):
-        if i == 5:
-            logger.info("Something happened for iteration 5.")
-    logger.success("Modeling training complete.")
-    # -----------------------------------------
-
-
-if __name__ == "__main__":
-    app()
 
 
 def mean_squared_error_gd(
@@ -240,11 +211,8 @@ def nll(y: np.ndarray, tx: np.ndarray, w: np.ndarray) -> float:
         a non-negative loss
     """
 
-    n = y.shape[0]
-    t = (-1) * y.T @ tx @ w
-    m = np.sum(np.log(1 + np.exp(tx @ w)))
-    p = np.squeeze(t + m).item() / n
-    return p
+    z = tx @ w
+    return float(np.mean(np.logaddexp(0, z) - y * z))
 
 
 def grad_nll(y: np.ndarray, tx: np.ndarray, w: np.ndarray) -> np.ndarray:
@@ -259,7 +227,9 @@ def grad_nll(y: np.ndarray, tx: np.ndarray, w: np.ndarray) -> np.ndarray:
         a vector of shape (D, 1)
     """
     N = tx.shape[0]
-    return 1 / N * tx.T @ (sigmoid(tx @ w) - y)
+    residual = sigmoid(tx @ w) - y
+    gradient = tx.transpose_dot(residual) if hasattr(tx, "transpose_dot") else tx.T @ residual
+    return gradient / N
 
 
 def sigmoid(t: np.ndarray | float) -> np.ndarray | float:
@@ -272,4 +242,4 @@ def sigmoid(t: np.ndarray | float) -> np.ndarray | float:
         scalar or numpy array
 
     """
-    return 1 / (np.exp(-t) + 1)
+    return np.exp(-np.logaddexp(0, -t))

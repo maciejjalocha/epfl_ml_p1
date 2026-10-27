@@ -1,1 +1,1 @@
-from p1 import config  # noqa: F401
+"""Project 1 package. Import submodules explicitly."""

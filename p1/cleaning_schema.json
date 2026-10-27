@@ -1,0 +1,2402 @@
+{
+  "source": "https://www.cdc.gov/brfss/annual_data/2015/pdf/codebook15_llcp.pdf",
+  "notes": [
+    "Self-contained reviewed schema for the released course CSV; no runtime dependency on another project.",
+    "Categorical response codes stay categories; numeric special responses receive separate flags.",
+    "MAXVO2_ and FC60_ use scaled sentinel 999 in the release; PAFREQ1_, PAFREQ2_, STRFREQ_ use 99.",
+    "No exclusion decisions in this schema. Decimal survey-weight columns are numeric, not one-hot categories."
+  ],
+  "features": {
+    "_STATE": {
+      "kind": "categorical",
+      "sentinels": [],
+      "zeros": []
+    },
+    "FMONTH": {
+      "kind": "categorical",
+      "sentinels": [],
+      "zeros": []
+    },
+    "IDATE": {
+      "kind": "categorical",
+      "sentinels": [],
+      "zeros": []
+    },
+    "IMONTH": {
+      "kind": "categorical",
+      "sentinels": [],
+      "zeros": []
+    },
+    "IDAY": {
+      "kind": "categorical",
+      "sentinels": [],
+      "zeros": []
+    },
+    "IYEAR": {
+      "kind": "categorical",
+      "sentinels": [],
+      "zeros": []
+    },
+    "DISPCODE": {
+      "kind": "categorical",
+      "sentinels": [],
+      "zeros": []
+    },
+    "SEQNO": {
+      "kind": "categorical",
+      "sentinels": [],
+      "zeros": []
+    },
+    "_PSU": {
+      "kind": "categorical",
+      "sentinels": [],
+      "zeros": []
+    },
+    "CTELENUM": {
+      "kind": "categorical",
+      "sentinels": [],
+      "zeros": []
+    },
+    "PVTRESD1": {
+      "kind": "categorical",
+      "sentinels": [],
+      "zeros": []
+    },
+    "COLGHOUS": {
+      "kind": "categorical",
+      "sentinels": [],
+      "zeros": []
+    },
+    "STATERES": {
+      "kind": "categorical",
+      "sentinels": [],
+      "zeros": []
+    },
+    "CELLFON3": {
+      "kind": "categorical",
+      "sentinels": [],
+      "zeros": []
+    },
+    "LADULT": {
+      "kind": "categorical",
+      "sentinels": [],
+      "zeros": []
+    },
+    "NUMADULT": {
+      "kind": "numeric",
+      "sentinels": [],
+      "zeros": []
+    },
+    "NUMMEN": {
+      "kind": "numeric",
+      "sentinels": [],
+      "zeros": []
+    },
+    "NUMWOMEN": {
+      "kind": "numeric",
+      "sentinels": [],
+      "zeros": []
+    },
+    "CTELNUM1": {
+      "kind": "categorical",
+      "sentinels": [],
+      "zeros": []
+    },
+    "CELLFON2": {
+      "kind": "categorical",
+      "sentinels": [],
+      "zeros": []
+    },
+    "CADULT": {
+      "kind": "categorical",
+      "sentinels": [],
+      "zeros": []
+    },
+    "PVTRESD2": {
+      "kind": "categorical",
+      "sentinels": [],
+      "zeros": []
+    },
+    "CCLGHOUS": {
+      "kind": "categorical",
+      "sentinels": [],
+      "zeros": []
+    },
+    "CSTATE": {
+      "kind": "categorical",
+      "sentinels": [],
+      "zeros": []
+    },
+    "LANDLINE": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "HHADULT": {
+      "kind": "numeric",
+      "sentinels": [
+        77,
+        99
+      ],
+      "zeros": []
+    },
+    "GENHLTH": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "PHYSHLTH": {
+      "kind": "numeric",
+      "sentinels": [
+        77,
+        99
+      ],
+      "zeros": [
+        88
+      ]
+    },
+    "MENTHLTH": {
+      "kind": "numeric",
+      "sentinels": [
+        77,
+        99
+      ],
+      "zeros": [
+        88
+      ]
+    },
+    "POORHLTH": {
+      "kind": "numeric",
+      "sentinels": [
+        77,
+        99
+      ],
+      "zeros": [
+        88
+      ]
+    },
+    "HLTHPLN1": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "PERSDOC2": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "MEDCOST": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "CHECKUP1": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": [
+        8
+      ]
+    },
+    "BPHIGH4": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "BPMEDS": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "BLOODCHO": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "CHOLCHK": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "TOLDHI2": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "CVDSTRK3": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "ASTHMA3": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "ASTHNOW": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "CHCSCNCR": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "CHCOCNCR": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "CHCCOPD1": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "HAVARTH3": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "ADDEPEV2": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "CHCKIDNY": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "DIABETE3": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "DIABAGE2": {
+      "kind": "numeric",
+      "sentinels": [
+        98,
+        99
+      ],
+      "zeros": []
+    },
+    "SEX": {
+      "kind": "categorical",
+      "sentinels": [],
+      "zeros": []
+    },
+    "MARITAL": {
+      "kind": "categorical",
+      "sentinels": [
+        9
+      ],
+      "zeros": []
+    },
+    "EDUCA": {
+      "kind": "categorical",
+      "sentinels": [
+        9
+      ],
+      "zeros": []
+    },
+    "RENTHOM1": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "NUMHHOL2": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "NUMPHON2": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "CPDEMO1": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "VETERAN3": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "EMPLOY1": {
+      "kind": "categorical",
+      "sentinels": [
+        9
+      ],
+      "zeros": []
+    },
+    "CHILDREN": {
+      "kind": "numeric",
+      "sentinels": [
+        99
+      ],
+      "zeros": [
+        88
+      ]
+    },
+    "INCOME2": {
+      "kind": "categorical",
+      "sentinels": [
+        77,
+        99
+      ],
+      "zeros": []
+    },
+    "INTERNET": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "WEIGHT2": {
+      "kind": "categorical",
+      "sentinels": [
+        7777,
+        9999
+      ],
+      "zeros": []
+    },
+    "HEIGHT3": {
+      "kind": "categorical",
+      "sentinels": [
+        7777,
+        9999
+      ],
+      "zeros": []
+    },
+    "PREGNANT": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "QLACTLM2": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "USEEQUIP": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "BLIND": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "DECIDE": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "DIFFWALK": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "DIFFDRES": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "DIFFALON": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "SMOKE100": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "SMOKDAY2": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "STOPSMK2": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "LASTSMK2": {
+      "kind": "categorical",
+      "sentinels": [
+        77,
+        99
+      ],
+      "zeros": []
+    },
+    "USENOW3": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "ALCDAY5": {
+      "kind": "categorical",
+      "sentinels": [
+        777,
+        999
+      ],
+      "zeros": [
+        888
+      ]
+    },
+    "AVEDRNK2": {
+      "kind": "numeric",
+      "sentinels": [
+        77,
+        99
+      ],
+      "zeros": []
+    },
+    "DRNK3GE5": {
+      "kind": "numeric",
+      "sentinels": [
+        77,
+        99
+      ],
+      "zeros": [
+        88
+      ]
+    },
+    "MAXDRNKS": {
+      "kind": "numeric",
+      "sentinels": [
+        77,
+        99
+      ],
+      "zeros": []
+    },
+    "FRUITJU1": {
+      "kind": "categorical",
+      "sentinels": [
+        777,
+        999
+      ],
+      "zeros": [
+        555
+      ]
+    },
+    "FRUIT1": {
+      "kind": "categorical",
+      "sentinels": [
+        777,
+        999
+      ],
+      "zeros": [
+        555
+      ]
+    },
+    "FVBEANS": {
+      "kind": "categorical",
+      "sentinels": [
+        777,
+        999
+      ],
+      "zeros": [
+        555
+      ]
+    },
+    "FVGREEN": {
+      "kind": "categorical",
+      "sentinels": [
+        777,
+        999
+      ],
+      "zeros": [
+        555
+      ]
+    },
+    "FVORANG": {
+      "kind": "categorical",
+      "sentinels": [
+        777,
+        999
+      ],
+      "zeros": [
+        555
+      ]
+    },
+    "VEGETAB1": {
+      "kind": "categorical",
+      "sentinels": [
+        777,
+        999
+      ],
+      "zeros": [
+        555
+      ]
+    },
+    "EXERANY2": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "EXRACT11": {
+      "kind": "categorical",
+      "sentinels": [
+        77,
+        99
+      ],
+      "zeros": []
+    },
+    "EXEROFT1": {
+      "kind": "categorical",
+      "sentinels": [
+        777,
+        999
+      ],
+      "zeros": []
+    },
+    "EXERHMM1": {
+      "kind": "categorical",
+      "sentinels": [
+        777,
+        999
+      ],
+      "zeros": []
+    },
+    "EXRACT21": {
+      "kind": "categorical",
+      "sentinels": [
+        77,
+        99
+      ],
+      "zeros": []
+    },
+    "EXEROFT2": {
+      "kind": "categorical",
+      "sentinels": [
+        777,
+        999
+      ],
+      "zeros": []
+    },
+    "EXERHMM2": {
+      "kind": "categorical",
+      "sentinels": [
+        777,
+        999
+      ],
+      "zeros": []
+    },
+    "STRENGTH": {
+      "kind": "categorical",
+      "sentinels": [
+        777,
+        999
+      ],
+      "zeros": [
+        888
+      ]
+    },
+    "LMTJOIN3": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "ARTHDIS2": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "ARTHSOCL": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "JOINPAIN": {
+      "kind": "numeric",
+      "sentinels": [
+        77,
+        99
+      ],
+      "zeros": []
+    },
+    "SEATBELT": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": [
+        5
+      ]
+    },
+    "FLUSHOT6": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "FLSHTMY2": {
+      "kind": "categorical",
+      "sentinels": [
+        777777,
+        999999
+      ],
+      "zeros": []
+    },
+    "IMFVPLAC": {
+      "kind": "categorical",
+      "sentinels": [
+        77,
+        99
+      ],
+      "zeros": []
+    },
+    "PNEUVAC3": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "HIVTST6": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "HIVTSTD3": {
+      "kind": "categorical",
+      "sentinels": [
+        777777,
+        999999
+      ],
+      "zeros": []
+    },
+    "WHRTST10": {
+      "kind": "categorical",
+      "sentinels": [
+        77,
+        99
+      ],
+      "zeros": []
+    },
+    "PDIABTST": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "PREDIAB1": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "INSULIN": {
+      "kind": "categorical",
+      "sentinels": [
+        9
+      ],
+      "zeros": []
+    },
+    "BLDSUGAR": {
+      "kind": "categorical",
+      "sentinels": [
+        777,
+        999
+      ],
+      "zeros": [
+        888
+      ]
+    },
+    "FEETCHK2": {
+      "kind": "categorical",
+      "sentinels": [
+        777,
+        999
+      ],
+      "zeros": [
+        888
+      ]
+    },
+    "DOCTDIAB": {
+      "kind": "numeric",
+      "sentinels": [
+        77,
+        99
+      ],
+      "zeros": [
+        88
+      ]
+    },
+    "CHKHEMO3": {
+      "kind": "numeric",
+      "sentinels": [
+        77,
+        99
+      ],
+      "zeros": [
+        88
+      ],
+      "non_numeric_codes": [
+        98
+      ]
+    },
+    "FEETCHK": {
+      "kind": "numeric",
+      "sentinels": [
+        77,
+        99
+      ],
+      "zeros": [
+        88
+      ]
+    },
+    "EYEEXAM": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": [
+        8
+      ]
+    },
+    "DIABEYE": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "DIABEDU": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "CAREGIV1": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "CRGVREL1": {
+      "kind": "categorical",
+      "sentinels": [
+        77,
+        99
+      ],
+      "zeros": []
+    },
+    "CRGVLNG1": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "CRGVHRS1": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "CRGVPRB1": {
+      "kind": "categorical",
+      "sentinels": [
+        77,
+        99
+      ],
+      "zeros": []
+    },
+    "CRGVPERS": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "CRGVHOUS": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "CRGVMST2": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "CRGVEXPT": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "VIDFCLT2": {
+      "kind": "categorical",
+      "sentinels": [
+        7
+      ],
+      "zeros": []
+    },
+    "VIREDIF3": {
+      "kind": "categorical",
+      "sentinels": [
+        7
+      ],
+      "zeros": []
+    },
+    "VIPRFVS2": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": [
+        5
+      ]
+    },
+    "VINOCRE2": {
+      "kind": "categorical",
+      "sentinels": [
+        2,
+        77,
+        99
+      ],
+      "zeros": []
+    },
+    "VIEYEXM2": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": [
+        5
+      ]
+    },
+    "VIINSUR2": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "VICTRCT4": {
+      "kind": "categorical",
+      "sentinels": [
+        7
+      ],
+      "zeros": []
+    },
+    "VIGLUMA2": {
+      "kind": "categorical",
+      "sentinels": [
+        7
+      ],
+      "zeros": []
+    },
+    "VIMACDG2": {
+      "kind": "categorical",
+      "sentinels": [
+        7
+      ],
+      "zeros": []
+    },
+    "CIMEMLOS": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "CDHOUSE": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": [
+        5
+      ]
+    },
+    "CDASSIST": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "CDHELP": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": [
+        5
+      ]
+    },
+    "CDSOCIAL": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": [
+        5
+      ]
+    },
+    "CDDISCUS": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "WTCHSALT": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "LONGWTCH": {
+      "kind": "categorical",
+      "sentinels": [
+        777,
+        999
+      ],
+      "zeros": []
+    },
+    "DRADVISE": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "ASTHMAGE": {
+      "kind": "numeric",
+      "sentinels": [
+        98,
+        99
+      ],
+      "zeros": [],
+      "non_numeric_codes": [
+        97
+      ]
+    },
+    "ASATTACK": {
+      "kind": "categorical",
+      "sentinels": [
+        7
+      ],
+      "zeros": []
+    },
+    "ASERVIST": {
+      "kind": "numeric",
+      "sentinels": [
+        98
+      ],
+      "zeros": [
+        88
+      ]
+    },
+    "ASDRVIST": {
+      "kind": "numeric",
+      "sentinels": [
+        98
+      ],
+      "zeros": [
+        88
+      ]
+    },
+    "ASRCHKUP": {
+      "kind": "numeric",
+      "sentinels": [
+        98,
+        99
+      ],
+      "zeros": [
+        88
+      ]
+    },
+    "ASACTLIM": {
+      "kind": "numeric",
+      "sentinels": [
+        777,
+        999
+      ],
+      "zeros": [
+        888
+      ]
+    },
+    "ASYMPTOM": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "ASNOSLEP": {
+      "kind": "categorical",
+      "sentinels": [
+        7
+      ],
+      "zeros": [
+        8
+      ]
+    },
+    "ASTHMED3": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": [
+        8
+      ]
+    },
+    "ASINHALR": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "HAREHAB1": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "STREHAB1": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "CVDASPRN": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "ASPUNSAF": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "RLIVPAIN": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "RDUCHART": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "RDUCSTRK": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "ARTTODAY": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "ARTHWGT": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "ARTHEXER": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "ARTHEDU": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "TETANUS": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "HPVADVC2": {
+      "kind": "categorical",
+      "sentinels": [
+        3,
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "HPVADSHT": {
+      "kind": "numeric",
+      "sentinels": [
+        77,
+        99
+      ],
+      "zeros": []
+    },
+    "SHINGLE2": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "HADMAM": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "HOWLONG": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "HADPAP2": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "LASTPAP2": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "HPVTEST": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "HPLSTTST": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "HADHYST2": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "PROFEXAM": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "LENGEXAM": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "BLDSTOOL": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "LSTBLDS3": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "HADSIGM3": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "HADSGCO1": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "LASTSIG3": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "PCPSAAD2": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "PCPSADI1": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "PCPSARE1": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "PSATEST1": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "PSATIME": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "PCPSARS1": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "PCPSADE1": {
+      "kind": "categorical",
+      "sentinels": [
+        9
+      ],
+      "zeros": []
+    },
+    "PCDMDECN": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "SCNTMNY1": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": [
+        5
+      ]
+    },
+    "SCNTMEL1": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": [
+        5
+      ]
+    },
+    "SCNTPAID": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "SCNTWRK1": {
+      "kind": "numeric",
+      "sentinels": [
+        97,
+        99
+      ],
+      "zeros": [
+        98
+      ]
+    },
+    "SCNTLPAD": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "SCNTLWK1": {
+      "kind": "numeric",
+      "sentinels": [
+        97,
+        99
+      ],
+      "zeros": [
+        98
+      ]
+    },
+    "SXORIENT": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "TRNSGNDR": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "RCSGENDR": {
+      "kind": "categorical",
+      "sentinels": [
+        9
+      ],
+      "zeros": []
+    },
+    "RCSRLTN2": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "CASTHDX2": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "CASTHNO2": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "EMTSUPRT": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": [
+        5
+      ]
+    },
+    "LSATISFY": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "ADPLEASR": {
+      "kind": "numeric",
+      "sentinels": [
+        77,
+        99
+      ],
+      "zeros": [
+        88
+      ]
+    },
+    "ADDOWN": {
+      "kind": "numeric",
+      "sentinels": [
+        77,
+        99
+      ],
+      "zeros": [
+        88
+      ]
+    },
+    "ADSLEEP": {
+      "kind": "numeric",
+      "sentinels": [
+        77,
+        99
+      ],
+      "zeros": [
+        88
+      ]
+    },
+    "ADENERGY": {
+      "kind": "numeric",
+      "sentinels": [
+        77,
+        99
+      ],
+      "zeros": [
+        88
+      ]
+    },
+    "ADEAT1": {
+      "kind": "numeric",
+      "sentinels": [
+        77,
+        99
+      ],
+      "zeros": [
+        88
+      ]
+    },
+    "ADFAIL": {
+      "kind": "numeric",
+      "sentinels": [
+        77,
+        99
+      ],
+      "zeros": [
+        88
+      ]
+    },
+    "ADTHINK": {
+      "kind": "numeric",
+      "sentinels": [
+        77,
+        99
+      ],
+      "zeros": [
+        88
+      ]
+    },
+    "ADMOVE": {
+      "kind": "numeric",
+      "sentinels": [
+        77,
+        99
+      ],
+      "zeros": [
+        88
+      ]
+    },
+    "MISTMNT": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "ADANXEV": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "QSTVER": {
+      "kind": "categorical",
+      "sentinels": [],
+      "zeros": []
+    },
+    "QSTLANG": {
+      "kind": "numeric",
+      "sentinels": [],
+      "zeros": []
+    },
+    "MSCODE": {
+      "kind": "categorical",
+      "sentinels": [],
+      "zeros": []
+    },
+    "_STSTR": {
+      "kind": "categorical",
+      "sentinels": [],
+      "zeros": []
+    },
+    "_STRWT": {
+      "kind": "numeric",
+      "sentinels": [],
+      "zeros": []
+    },
+    "_RAWRAKE": {
+      "kind": "numeric",
+      "sentinels": [],
+      "zeros": []
+    },
+    "_WT2RAKE": {
+      "kind": "numeric",
+      "sentinels": [],
+      "zeros": []
+    },
+    "_CHISPNC": {
+      "kind": "categorical",
+      "sentinels": [
+        9
+      ],
+      "zeros": []
+    },
+    "_CRACE1": {
+      "kind": "categorical",
+      "sentinels": [
+        77,
+        99
+      ],
+      "zeros": []
+    },
+    "_CPRACE": {
+      "kind": "categorical",
+      "sentinels": [
+        77,
+        99
+      ],
+      "zeros": []
+    },
+    "_CLLCPWT": {
+      "kind": "numeric",
+      "sentinels": [],
+      "zeros": []
+    },
+    "_DUALUSE": {
+      "kind": "categorical",
+      "sentinels": [],
+      "zeros": []
+    },
+    "_DUALCOR": {
+      "kind": "numeric",
+      "sentinels": [],
+      "zeros": []
+    },
+    "_LLCPWT": {
+      "kind": "numeric",
+      "sentinels": [],
+      "zeros": []
+    },
+    "_RFHLTH": {
+      "kind": "categorical",
+      "sentinels": [
+        9
+      ],
+      "zeros": []
+    },
+    "_HCVU651": {
+      "kind": "categorical",
+      "sentinels": [
+        9
+      ],
+      "zeros": []
+    },
+    "_RFHYPE5": {
+      "kind": "categorical",
+      "sentinels": [
+        9
+      ],
+      "zeros": []
+    },
+    "_CHOLCHK": {
+      "kind": "categorical",
+      "sentinels": [
+        9
+      ],
+      "zeros": []
+    },
+    "_RFCHOL": {
+      "kind": "categorical",
+      "sentinels": [
+        9
+      ],
+      "zeros": []
+    },
+    "_LTASTH1": {
+      "kind": "categorical",
+      "sentinels": [
+        9
+      ],
+      "zeros": []
+    },
+    "_CASTHM1": {
+      "kind": "categorical",
+      "sentinels": [
+        9
+      ],
+      "zeros": []
+    },
+    "_ASTHMS1": {
+      "kind": "categorical",
+      "sentinels": [
+        9
+      ],
+      "zeros": [
+        3
+      ]
+    },
+    "_DRDXAR1": {
+      "kind": "categorical",
+      "sentinels": [],
+      "zeros": []
+    },
+    "_PRACE1": {
+      "kind": "categorical",
+      "sentinels": [
+        77,
+        99
+      ],
+      "zeros": []
+    },
+    "_MRACE1": {
+      "kind": "categorical",
+      "sentinels": [
+        77,
+        99
+      ],
+      "zeros": []
+    },
+    "_HISPANC": {
+      "kind": "categorical",
+      "sentinels": [
+        9
+      ],
+      "zeros": []
+    },
+    "_RACE": {
+      "kind": "categorical",
+      "sentinels": [
+        9
+      ],
+      "zeros": []
+    },
+    "_RACEG21": {
+      "kind": "categorical",
+      "sentinels": [
+        9
+      ],
+      "zeros": []
+    },
+    "_RACEGR3": {
+      "kind": "categorical",
+      "sentinels": [
+        9
+      ],
+      "zeros": []
+    },
+    "_RACE_G1": {
+      "kind": "categorical",
+      "sentinels": [],
+      "zeros": []
+    },
+    "_AGEG5YR": {
+      "kind": "categorical",
+      "sentinels": [
+        14
+      ],
+      "zeros": []
+    },
+    "_AGE65YR": {
+      "kind": "categorical",
+      "sentinels": [
+        3
+      ],
+      "zeros": []
+    },
+    "_AGE80": {
+      "kind": "numeric",
+      "sentinels": [],
+      "zeros": []
+    },
+    "_AGE_G": {
+      "kind": "categorical",
+      "sentinels": [],
+      "zeros": []
+    },
+    "HTIN4": {
+      "kind": "numeric",
+      "sentinels": [],
+      "zeros": []
+    },
+    "HTM4": {
+      "kind": "numeric",
+      "sentinels": [],
+      "zeros": []
+    },
+    "WTKG3": {
+      "kind": "numeric",
+      "sentinels": [
+        99999
+      ],
+      "zeros": []
+    },
+    "_BMI5": {
+      "kind": "numeric",
+      "sentinels": [],
+      "zeros": []
+    },
+    "_BMI5CAT": {
+      "kind": "categorical",
+      "sentinels": [],
+      "zeros": []
+    },
+    "_RFBMI5": {
+      "kind": "categorical",
+      "sentinels": [
+        9
+      ],
+      "zeros": []
+    },
+    "_CHLDCNT": {
+      "kind": "categorical",
+      "sentinels": [
+        9
+      ],
+      "zeros": []
+    },
+    "_EDUCAG": {
+      "kind": "categorical",
+      "sentinels": [
+        9
+      ],
+      "zeros": []
+    },
+    "_INCOMG": {
+      "kind": "categorical",
+      "sentinels": [
+        9
+      ],
+      "zeros": []
+    },
+    "_SMOKER3": {
+      "kind": "categorical",
+      "sentinels": [
+        9
+      ],
+      "zeros": []
+    },
+    "_RFSMOK3": {
+      "kind": "categorical",
+      "sentinels": [
+        9
+      ],
+      "zeros": []
+    },
+    "DRNKANY5": {
+      "kind": "categorical",
+      "sentinels": [
+        7,
+        9
+      ],
+      "zeros": []
+    },
+    "DROCDY3_": {
+      "kind": "numeric",
+      "sentinels": [
+        900
+      ],
+      "zeros": []
+    },
+    "_RFBING5": {
+      "kind": "categorical",
+      "sentinels": [
+        9
+      ],
+      "zeros": []
+    },
+    "_DRNKWEK": {
+      "kind": "numeric",
+      "sentinels": [
+        99900
+      ],
+      "zeros": []
+    },
+    "_RFDRHV5": {
+      "kind": "categorical",
+      "sentinels": [
+        9
+      ],
+      "zeros": []
+    },
+    "FTJUDA1_": {
+      "kind": "numeric",
+      "sentinels": [],
+      "zeros": []
+    },
+    "FRUTDA1_": {
+      "kind": "numeric",
+      "sentinels": [],
+      "zeros": []
+    },
+    "BEANDAY_": {
+      "kind": "numeric",
+      "sentinels": [],
+      "zeros": []
+    },
+    "GRENDAY_": {
+      "kind": "numeric",
+      "sentinels": [],
+      "zeros": []
+    },
+    "ORNGDAY_": {
+      "kind": "numeric",
+      "sentinels": [],
+      "zeros": []
+    },
+    "VEGEDA1_": {
+      "kind": "numeric",
+      "sentinels": [],
+      "zeros": []
+    },
+    "_MISFRTN": {
+      "kind": "numeric",
+      "sentinels": [],
+      "zeros": []
+    },
+    "_MISVEGN": {
+      "kind": "numeric",
+      "sentinels": [],
+      "zeros": []
+    },
+    "_FRTRESP": {
+      "kind": "categorical",
+      "sentinels": [
+        0,
+        1
+      ],
+      "zeros": []
+    },
+    "_VEGRESP": {
+      "kind": "categorical",
+      "sentinels": [
+        0,
+        1
+      ],
+      "zeros": []
+    },
+    "_FRUTSUM": {
+      "kind": "numeric",
+      "sentinels": [],
+      "zeros": []
+    },
+    "_VEGESUM": {
+      "kind": "numeric",
+      "sentinels": [],
+      "zeros": []
+    },
+    "_FRTLT1": {
+      "kind": "categorical",
+      "sentinels": [
+        9
+      ],
+      "zeros": []
+    },
+    "_VEGLT1": {
+      "kind": "categorical",
+      "sentinels": [
+        9
+      ],
+      "zeros": []
+    },
+    "_FRT16": {
+      "kind": "categorical",
+      "sentinels": [],
+      "zeros": []
+    },
+    "_VEG23": {
+      "kind": "categorical",
+      "sentinels": [],
+      "zeros": []
+    },
+    "_FRUITEX": {
+      "kind": "categorical",
+      "sentinels": [
+        1
+      ],
+      "zeros": []
+    },
+    "_VEGETEX": {
+      "kind": "categorical",
+      "sentinels": [
+        1
+      ],
+      "zeros": []
+    },
+    "_TOTINDA": {
+      "kind": "categorical",
+      "sentinels": [
+        9
+      ],
+      "zeros": []
+    },
+    "METVL11_": {
+      "kind": "numeric",
+      "sentinels": [],
+      "zeros": []
+    },
+    "METVL21_": {
+      "kind": "numeric",
+      "sentinels": [],
+      "zeros": []
+    },
+    "MAXVO2_": {
+      "kind": "numeric",
+      "sentinels": [
+        999
+      ],
+      "zeros": []
+    },
+    "FC60_": {
+      "kind": "numeric",
+      "sentinels": [
+        999
+      ],
+      "zeros": []
+    },
+    "ACTIN11_": {
+      "kind": "categorical",
+      "sentinels": [],
+      "zeros": []
+    },
+    "ACTIN21_": {
+      "kind": "categorical",
+      "sentinels": [],
+      "zeros": []
+    },
+    "PADUR1_": {
+      "kind": "numeric",
+      "sentinels": [],
+      "zeros": []
+    },
+    "PADUR2_": {
+      "kind": "numeric",
+      "sentinels": [],
+      "zeros": []
+    },
+    "PAFREQ1_": {
+      "kind": "numeric",
+      "sentinels": [
+        99
+      ],
+      "zeros": []
+    },
+    "PAFREQ2_": {
+      "kind": "numeric",
+      "sentinels": [
+        99
+      ],
+      "zeros": []
+    },
+    "_MINAC11": {
+      "kind": "numeric",
+      "sentinels": [],
+      "zeros": []
+    },
+    "_MINAC21": {
+      "kind": "numeric",
+      "sentinels": [],
+      "zeros": []
+    },
+    "STRFREQ_": {
+      "kind": "numeric",
+      "sentinels": [
+        99
+      ],
+      "zeros": []
+    },
+    "PAMISS1_": {
+      "kind": "categorical",
+      "sentinels": [
+        0,
+        1,
+        9
+      ],
+      "zeros": []
+    },
+    "PAMIN11_": {
+      "kind": "numeric",
+      "sentinels": [],
+      "zeros": []
+    },
+    "PAMIN21_": {
+      "kind": "numeric",
+      "sentinels": [],
+      "zeros": []
+    },
+    "PA1MIN_": {
+      "kind": "numeric",
+      "sentinels": [],
+      "zeros": []
+    },
+    "PAVIG11_": {
+      "kind": "numeric",
+      "sentinels": [],
+      "zeros": []
+    },
+    "PAVIG21_": {
+      "kind": "numeric",
+      "sentinels": [],
+      "zeros": []
+    },
+    "PA1VIGM_": {
+      "kind": "numeric",
+      "sentinels": [],
+      "zeros": []
+    },
+    "_PACAT1": {
+      "kind": "categorical",
+      "sentinels": [
+        9
+      ],
+      "zeros": []
+    },
+    "_PAINDX1": {
+      "kind": "categorical",
+      "sentinels": [
+        9
+      ],
+      "zeros": []
+    },
+    "_PA150R2": {
+      "kind": "categorical",
+      "sentinels": [
+        9
+      ],
+      "zeros": []
+    },
+    "_PA300R2": {
+      "kind": "categorical",
+      "sentinels": [
+        9
+      ],
+      "zeros": []
+    },
+    "_PA30021": {
+      "kind": "categorical",
+      "sentinels": [
+        9
+      ],
+      "zeros": []
+    },
+    "_PASTRNG": {
+      "kind": "categorical",
+      "sentinels": [
+        9
+      ],
+      "zeros": []
+    },
+    "_PAREC1": {
+      "kind": "categorical",
+      "sentinels": [
+        9
+      ],
+      "zeros": []
+    },
+    "_PASTAE1": {
+      "kind": "categorical",
+      "sentinels": [
+        9
+      ],
+      "zeros": []
+    },
+    "_LMTACT1": {
+      "kind": "categorical",
+      "sentinels": [
+        9
+      ],
+      "zeros": []
+    },
+    "_LMTWRK1": {
+      "kind": "categorical",
+      "sentinels": [
+        9
+      ],
+      "zeros": []
+    },
+    "_LMTSCL1": {
+      "kind": "categorical",
+      "sentinels": [
+        9
+      ],
+      "zeros": []
+    },
+    "_RFSEAT2": {
+      "kind": "categorical",
+      "sentinels": [
+        9
+      ],
+      "zeros": []
+    },
+    "_RFSEAT3": {
+      "kind": "categorical",
+      "sentinels": [
+        9
+      ],
+      "zeros": []
+    },
+    "_FLSHOT6": {
+      "kind": "categorical",
+      "sentinels": [
+        9
+      ],
+      "zeros": []
+    },
+    "_PNEUMO2": {
+      "kind": "categorical",
+      "sentinels": [
+        9
+      ],
+      "zeros": []
+    },
+    "_AIDTST3": {
+      "kind": "categorical",
+      "sentinels": [
+        9
+      ],
+      "zeros": []
+    }
+  }
+}
