@@ -1,8 +1,8 @@
 """Disk caches for raw data, cleaned matrices and fitted models."""
 import hashlib
 import json
-import pickle
 from pathlib import Path
+import pickle
 
 import numpy as np
 
@@ -20,17 +20,17 @@ def cache_key(data_dir, settings=None):
     return hashlib.sha256(code + json.dumps([stamp, settings], sort_keys=True).encode()).hexdigest()
 
 
-def cached_raw(data_dir, cache_dir):
+def cached_raw(data_dir, cache_dir, sub_sample=False):
     cache_dir = Path(cache_dir)
     cache_dir.mkdir(parents=True, exist_ok=True)
     path = cache_dir / 'raw.pkl'
-    key = cache_key(data_dir)
+    key = cache_key(data_dir, {'sub_sample': sub_sample})
     if path.exists():
         with path.open('rb') as f:
             if pickle.load(f) == key:
                 print('Raw data: cache hit')
                 return pickle.load(f)
-    data = load_cleaning_data(data_dir)
+    data = load_cleaning_data(data_dir, sub_sample=sub_sample)
     with path.open('wb') as f:
         pickle.dump(key, f)
         pickle.dump(data, f, protocol=pickle.HIGHEST_PROTOCOL)

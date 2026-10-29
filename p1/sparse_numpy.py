@@ -34,6 +34,26 @@ class SparseMatrix:
         return np.bincount(self.cols, weights=self.data * residual[self.rows],
                            minlength=self.shape[1]).astype(np.float32)
 
+    def row(self, index):
+        """Materialize one row as a dense vector for stochastic updates."""
+        if not 0 <= index < self.shape[0]:
+            raise IndexError(index)
+        out = np.zeros(self.shape[1], dtype=self.data.dtype)
+        entries = self.rows == index
+        out[self.cols[entries]] = self.data[entries]
+        return out
+
+    def gram(self):
+        """Return the dense feature Gram matrix used by closed-form solvers."""
+        gram = np.zeros((self.shape[1], self.shape[1]), dtype=np.float32)
+        for start in range(0, self.shape[0], 4096):
+            stop = min(start + 4096, self.shape[0])
+            block = np.zeros((stop - start, self.shape[1]), dtype=np.float32)
+            entries = (self.rows >= start) & (self.rows < stop)
+            block[self.rows[entries] - start, self.cols[entries]] = self.data[entries]
+            gram += block.T @ block
+        return gram
+
     def select(self, columns):
         mapping = np.full(self.shape[1], -1, dtype=np.int32)
         mapping[columns] = np.arange(len(columns))

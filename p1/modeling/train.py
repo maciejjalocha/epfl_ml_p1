@@ -1,6 +1,7 @@
 import random
 
 import numpy as np
+from tqdm.auto import tqdm
 
 
 def mean_squared_error_gd(
@@ -13,7 +14,7 @@ def mean_squared_error_gd(
 ) -> tuple[np.ndarray, float | list[float]]:
     w = initial_w
     loss_history = []
-    for _ in range(max_iters):
+    for _ in tqdm(range(max_iters), desc="MSE GD", unit="iter"):
         grad = grad_mse(y, tx, w)
         w = grad_step(w, gamma, grad)
         if track_history:
@@ -35,10 +36,10 @@ def mean_squared_error_sgd(
     w = initial_w
     loss_history = []
     N = tx.shape[0]
-    for _ in range(max_iters):
+    for _ in tqdm(range(max_iters), desc="MSE SGD", unit="iter"):
         n = random.randint(0, N - 1)
         y_n = y[n]
-        x_n = tx[n, :]
+        x_n = tx.row(n) if hasattr(tx, "row") else tx[n, :]
         grad = grad_s_mse(y_n, x_n, w)
         w = grad_step(w, gamma, grad)
         if track_history:
@@ -61,7 +62,9 @@ def least_squares(y: np.ndarray, tx: np.ndarray) -> tuple[np.ndarray, float]:
         mse: scalar.
 
     """
-    w = np.linalg.solve(tx.T @ tx, tx.T @ y)
+    gram = tx.gram() if hasattr(tx, "gram") else tx.T @ tx
+    cross = tx.transpose_dot(y) if hasattr(tx, "transpose_dot") else tx.T @ y
+    w = np.linalg.solve(gram, cross)
     loss = mse(y, tx, w)
     return w, loss
 
@@ -80,8 +83,10 @@ def ridge_regression(y: np.ndarray, tx: np.ndarray, lambda_: float) -> tuple[np.
     """
     D = tx.shape[1]
     N = tx.shape[0]
-    A = (tx.T @ tx) + (np.eye(D) * 2 * lambda_ * N)
-    b = tx.T @ y
+    gram = tx.gram() if hasattr(tx, "gram") else tx.T @ tx
+    cross = tx.transpose_dot(y) if hasattr(tx, "transpose_dot") else tx.T @ y
+    A = gram + (np.eye(D) * 2 * lambda_ * N)
+    b = cross
     weights = np.linalg.solve(A, b)
     loss = mse(y, tx, weights)
     return weights, loss
@@ -98,7 +103,7 @@ def logistic_regression(
 
     w = initial_w
     loss_history = []
-    for _ in range(max_iters):
+    for _ in tqdm(range(max_iters), desc="Logistic GD", unit="iter"):
         grad = grad_nll(y, tx, w)
         w = grad_step(w, gamma, grad)
         if track_history:
@@ -120,7 +125,7 @@ def reg_logistic_regression(
 
     w = initial_w
     loss_history = []
-    for _ in range(max_iters):
+    for _ in tqdm(range(max_iters), desc="Regularized logistic GD", unit="iter"):
         grad = grad_nll(y, tx, w)
         grad += 2 * lambda_ * w
         w = grad_step(w, gamma, grad)
@@ -184,7 +189,8 @@ def grad_mse(y: np.ndarray, tx: np.ndarray, w: np.ndarray) -> np.ndarray:
     N = y.shape[0]
     # else:
         # N = 1
-    return -1 / N * tx.T @ e
+    cross = tx.transpose_dot(e) if hasattr(tx, "transpose_dot") else tx.T @ e
+    return -1 / N * cross
 
 def grad_s_mse(y: float, tx: np.ndarray, w: np.ndarray) -> np.ndarray:
     """Computes the gradient at w for a single sample.
@@ -195,7 +201,7 @@ def grad_s_mse(y: float, tx: np.ndarray, w: np.ndarray) -> np.ndarray:
         w: numpy array of shape=(2, ). The vector of model parameters.
     """
     e = y - tx @ w
-    return -1 * tx.T * e
+    return -1 * tx * e
 
 
 # ==== Logistic regression helpers
