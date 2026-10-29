@@ -4,9 +4,9 @@ Missingness filtering, imputation, scaling and category vocabularies are fitted
 together. CSVs and labels are never modified. See cleaning_schema.json for the
 field-specific codes: 7/8/9/77/88/99 cannot be cleaned with a global rule.
 """
-import json
 import csv
 from itertools import islice
+import json
 from pathlib import Path
 
 import numpy as np
@@ -14,7 +14,7 @@ import numpy as np
 SCHEMA = json.loads(Path(__file__).with_name("cleaning_schema.json").read_text())["features"]
 
 
-def load_cleaning_data(data_dir, chunk_size=5000):
+def load_cleaning_data(data_dir, chunk_size=5000, sub_sample=False):
     """Parse CSV rows in batches (5,000 by default) to reduce temporary memory use."""
     data_dir = Path(data_dir)
     if chunk_size < 1:
@@ -54,6 +54,17 @@ def load_cleaning_data(data_dir, chunk_size=5000):
         raise ValueError("Label IDs do not match training IDs")
     if not np.isin(labels, [-1, 1]).all():
         raise ValueError("Expected labels -1/+1")
+
+    if sub_sample:
+        # shuffle the data before sub-sampling to avoid biasing the sample
+        rng = np.random.default_rng(seed=42)
+        indices = rng.permutation(len(train))[:len(train) // 50]
+
+        train = train[indices]
+        train_ids = train_ids[indices]
+        labels = labels[indices]
+        # label_ids = label_ids[indices]
+
     return train, test, labels[:, 0].astype(int), train_ids, test_ids, names
 
 
